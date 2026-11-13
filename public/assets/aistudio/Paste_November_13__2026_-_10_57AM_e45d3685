@@ -1,0 +1,1034 @@
+# BUILD GST RECONCILE AI — AN AI-POWERED GST RECONCILIATION AND COMPLIANCE INTELLIGENCE PLATFORM
+
+Act as a senior product engineer, full-stack architect, AI engineer, UX designer, and technical co-founder.
+
+Build a functional, polished, full-stack web application named **GST Reconcile AI**.
+
+This is a serious B2B SaaS product intended for Indian MSMEs, accountants, and CA firms. It is being developed as a startup prototype for Startup Buildathon India 2026.
+
+Do not build a generic AI chatbot, static dashboard, landing-page-only prototype, or superficial CRUD application.
+
+Build a working product with a complete end-to-end reconciliation workflow, realistic sample data, functional interactions, meaningful AI integration, and a professional interface.
+
+---
+
+# 1. PRODUCT VISION
+
+## Product name
+GST Reconcile AI
+
+## Tagline
+From GST discrepancies to resolved actions.
+
+## Product description
+GST Reconcile AI is an AI-assisted GST reconciliation and compliance intelligence platform that helps Indian businesses and accounting professionals process supplier invoices, compare purchase records with GSTR-2B, identify discrepancies, investigate their causes, coordinate supplier follow-ups, and maintain an auditable history of unresolved issues.
+
+The platform combines:
+
+- Multimodal AI-powered invoice understanding.
+- Deterministic GST reconciliation.
+- Evidence-based discrepancy investigation.
+- AI-generated supplier communication.
+- Human-reviewed corrective actions.
+- Cross-period discrepancy tracking.
+- Audit-ready reporting.
+
+## Core workflow
+
+Invoice ingestion → Structured extraction → Purchase register import → GSTR-2B import → Deterministic reconciliation → Discrepancy investigation → Supplier follow-up → Human approval → Resolution tracking → Reports.
+
+The product must make this workflow easy to understand and demonstrate.
+
+---
+
+# 2. TARGET USERS
+
+Design the product for three user categories:
+
+### A. MSME business owners
+- Upload supplier invoices.
+- Import purchase registers.
+- Upload GSTR-2B data.
+- Understand mismatches.
+- Track unresolved supplier issues.
+- Download reconciliation reports.
+
+### B. Accountants
+- Review extracted invoice information.
+- Inspect matching results.
+- Investigate discrepancies.
+- Approve or reject AI-generated recommendations.
+- Maintain monthly reconciliation records.
+
+### C. CA firms
+- Manage multiple business clients.
+- Switch between client workspaces.
+- Monitor reconciliation completion.
+- Track recurring supplier discrepancies.
+- Review pending issues across GST registrations.
+
+For the prototype, implement a coherent demo workspace and a clear client-switching experience. Do not build complicated enterprise role-management before the core workflow works.
+
+---
+
+# 3. TECHNOLOGY AND IMPLEMENTATION
+
+Use the following stack:
+
+## Frontend
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Lucide icons.
+- Recharts for charts.
+- React Router or an equivalent routing solution.
+
+## Server
+- Node.js server runtime supported by Google AI Studio Build.
+- TypeScript.
+- Clean separation between API routes, business logic, AI services, validation and persistence.
+
+## AI
+Use the Gemini API through server-side code.
+
+Use Gemini for:
+1. Invoice information extraction.
+2. Contextual discrepancy explanations.
+3. Supplier follow-up message generation.
+4. Natural-language questions about reconciliation results.
+
+Use structured JSON output wherever a predictable response schema is required.
+
+## Data
+Use persistent storage supported by the AI Studio environment. Prefer Firebase/Firestore when available and configured.
+
+If persistent storage is not configured, provide a reliable demo-data mode with a clearly indicated data source. Do not pretend that in-memory data is permanently stored.
+
+## File processing
+Support:
+- PDF invoices.
+- JPG and PNG invoice images.
+- CSV files.
+- XLSX spreadsheets.
+
+Use appropriate parsing libraries for CSV and Excel. Use Gemini multimodal capabilities for document understanding.
+
+## Security
+- Keep GEMINI_API_KEY exclusively on the server.
+- Never expose secrets in frontend code.
+- Validate uploaded files and file sizes.
+- Validate all API inputs.
+- Enforce tenant/workspace ownership on data access.
+- Do not allow one business workspace to access another workspace's records.
+- Do not execute arbitrary AI-generated code or SQL.
+
+Use the server-side secret configuration provided by AI Studio.
+
+---
+
+# 4. PRODUCT DESIGN AND VISUAL IDENTITY
+
+Build a professional financial SaaS interface.
+
+The application should feel like a credible accounting and fintech product, not a student project.
+
+## Design direction
+
+Visual style:
+- Clean, modern, enterprise-grade.
+- Minimal visual clutter.
+- Strong typography.
+- Consistent spacing.
+- Clear data hierarchy.
+- Professional tables and financial dashboards.
+- Subtle borders and shadows.
+- Restrained use of colour.
+
+Suggested palette:
+- Deep navy: #123B5D
+- Primary blue: #176B87
+- Teal: #247A82
+- Green: #185C46
+- Background: #F6F8FA
+- Surface: #FFFFFF
+- Primary text: #172B3A
+- Secondary text: #64748B
+- Warning: #D97706
+- Danger: #DC2626
+
+Use colours semantically:
+- Green: Matched or resolved.
+- Amber: Needs review.
+- Red: Discrepancy or high-priority issue.
+- Blue: Information or processing.
+
+Do not use excessive gradients, glowing elements, glassmorphism, oversized rounded cards, or unnecessary animations.
+
+## Application shell
+
+Create:
+- Collapsible left sidebar.
+- Top navigation bar.
+- Current business/client selector.
+- Current GSTIN indicator.
+- Notification icon.
+- User profile menu.
+- Main content area.
+- Responsive mobile layout.
+
+Sidebar navigation:
+
+1. Overview
+2. Reconciliation
+3. Invoices
+4. Purchase Register
+5. GSTR-2B
+6. Discrepancies
+7. Suppliers
+8. Reports
+9. AI Assistant
+10. Settings
+
+Use a consistent sidebar and navigation structure across all pages.
+
+---
+
+# 5. DASHBOARD
+
+Build a fully functional overview dashboard.
+
+Display the selected GST registration and reconciliation period.
+
+Example demo data:
+
+Business: Eastern Retail Solutions
+GSTIN: 19AABCU9603R1ZM
+Period: October 2026
+
+Clearly label all sample business information as DEMO DATA. Do not represent fictional GST records as real GSTN data.
+
+## KPI cards
+
+Show:
+
+- Total invoices processed.
+- Total purchase register entries.
+- GSTR-2B entries.
+- Matched invoices.
+- Unmatched invoices.
+- Discrepancies requiring review.
+- Potential ITC value requiring investigation.
+
+Use realistic demo figures and derive dashboard values from the actual demo records rather than hardcoding unrelated card totals.
+
+## Dashboard visualisations
+
+Include:
+
+1. Monthly reconciliation completion trend.
+2. Matched vs unmatched invoice distribution.
+3. Discrepancy category breakdown.
+4. Supplier-wise outstanding discrepancies.
+5. Reconciliation progress indicator.
+
+## Recent activity
+
+Show events such as:
+- Invoice uploaded.
+- Invoice extraction completed.
+- GSTR-2B imported.
+- Reconciliation completed.
+- Discrepancy identified.
+- Supplier follow-up drafted.
+- Issue marked resolved.
+
+Every dashboard item should link to the relevant record or page.
+
+---
+
+# 6. INVOICE INGESTION AND GEMINI EXTRACTION
+
+This is one of the most important product features.
+
+Create an invoice upload page.
+
+## Upload interface
+
+Allow users to:
+- Drag and drop files.
+- Browse files.
+- Upload multiple invoices.
+- Preview supported documents.
+- See upload progress.
+- Remove files before processing.
+- Trigger extraction.
+
+Display supported formats and size restrictions.
+
+## Gemini extraction
+
+Use Gemini multimodal capabilities to extract invoice information from uploaded PDF and image files.
+
+Extract the following:
+
+- Supplier legal name.
+- Supplier GSTIN.
+- Recipient legal name.
+- Recipient GSTIN.
+- Invoice number.
+- Invoice date.
+- Place of supply, if available.
+- HSN/SAC codes, where available.
+- Taxable value.
+- CGST.
+- SGST.
+- IGST.
+- Cess, if present.
+- Total tax.
+- Invoice grand total.
+- Currency.
+- Relevant line items, where available.
+
+## Extraction response
+
+Return structured JSON.
+
+Each extracted field should have:
+- Extracted value.
+- Confidence score.
+- Source evidence or page/region reference where feasible.
+- Validation status.
+
+Example conceptual structure:
+
+{
+  "supplierName": "ABC Distributors",
+  "supplierGstin": "19ABCDE1234F1Z5",
+  "invoiceNumber": "ABC/091",
+  "invoiceDate": "2026-10-12",
+  "taxableValue": 10000,
+  "cgst": 900,
+  "sgst": 900,
+  "igst": 0,
+  "totalTax": 1800,
+  "grandTotal": 11800,
+  "confidence": 0.96,
+  "reviewRequired": false
+}
+
+The above is illustrative data, not a real invoice.
+
+## Important extraction rules
+
+- Never invent missing fields.
+- Use null when a value is unavailable.
+- Preserve original invoice numbers.
+- Do not silently alter GSTINs or amounts.
+- Distinguish extraction confidence from factual correctness.
+- Validate extracted values in backend code.
+- Flag low-confidence or inconsistent fields for human review.
+- Do not treat an AI extraction result as a verified financial record until accepted by the user.
+
+## Extraction review screen
+
+Show the original invoice preview beside the extracted structured fields.
+
+Allow users to:
+- Edit extracted values.
+- Approve extraction.
+- Reject extraction.
+- Re-run extraction.
+- Mark the invoice as requiring manual review.
+
+After approval, save the invoice as a structured source record.
+
+---
+
+# 7. PURCHASE REGISTER IMPORT
+
+Create a dedicated Purchase Register page.
+
+Allow users to import:
+- CSV.
+- XLSX.
+
+Provide a sample downloadable template.
+
+Expected columns should include:
+- Supplier GSTIN.
+- Supplier name.
+- Invoice number.
+- Invoice date.
+- Taxable value.
+- CGST.
+- SGST.
+- IGST.
+- Cess.
+- Total invoice value.
+
+Requirements:
+
+- Parse uploaded files.
+- Detect column headers.
+- Allow column mapping if headers differ.
+- Validate mandatory fields.
+- Display invalid rows and validation errors.
+- Allow users to correct data.
+- Prevent accidental duplicate imports.
+- Preserve the original imported file reference.
+
+Show imported records in a searchable, filterable table.
+
+---
+
+# 8. GSTR-2B IMPORT
+
+Create a separate GSTR-2B page.
+
+For the prototype, allow users to upload GSTR-2B data using CSV/XLSX or a supported structured export.
+
+If a true GST portal integration is unavailable, clearly describe this as manual file import.
+
+Do not fabricate GSTN API access or claim to fetch live GSTR-2B records.
+
+Display:
+- Supplier GSTIN.
+- Supplier name.
+- Document number.
+- Document date.
+- Taxable value.
+- IGST.
+- CGST.
+- SGST.
+- Cess.
+- Total tax.
+
+Provide:
+- Import history.
+- Reporting period.
+- Validation summary.
+- Invalid row details.
+- Duplicate detection.
+
+Explain that GSTR-2B is an auto-drafted statement based on supplier-reported information. It is not an editable recipient-side purchase register.
+
+---
+
+# 9. DETERMINISTIC RECONCILIATION ENGINE
+
+This is the core business logic.
+
+Implement reconciliation in backend code, not using Gemini to calculate or decide matches.
+
+The engine must compare three sources:
+
+1. Uploaded supplier invoices.
+2. Purchase register.
+3. Uploaded GSTR-2B.
+
+## Matching sequence
+
+Implement a transparent matching hierarchy.
+
+### Level 1: Exact match
+Compare:
+- Supplier GSTIN.
+- Normalised invoice number.
+- Invoice date.
+- Taxable value.
+- Tax amounts.
+
+### Level 2: Normalised invoice match
+Handle:
+- Case differences.
+- Spaces.
+- Hyphens.
+- Slashes.
+- Leading/trailing whitespace.
+- Common invoice-number formatting variations.
+
+Never discard the original invoice number.
+
+### Level 3: Tolerance-based candidate
+Allow configurable date and amount tolerances.
+
+For example:
+- Small date difference.
+- Minor rounding difference.
+
+All tolerances must be configurable and visible to the user.
+
+### Level 4: Fuzzy candidate
+Generate possible matches when invoice numbers are similar but not identical.
+
+Do not automatically confirm uncertain fuzzy matches.
+
+Show the candidate and require human approval.
+
+## Reconciliation outcomes
+
+Use these categories:
+
+- MATCHED.
+- MISSING_IN_GSTR2B.
+- MISSING_IN_PURCHASE_REGISTER.
+- TAXABLE_VALUE_MISMATCH.
+- TAX_AMOUNT_MISMATCH.
+- GSTIN_MISMATCH.
+- INVOICE_NUMBER_MISMATCH.
+- DATE_MISMATCH.
+- POSSIBLE_DUPLICATE.
+- EXTRA_GSTR2B_ENTRY.
+- NEEDS_MANUAL_REVIEW.
+
+## Result details
+
+For every match or discrepancy, show:
+
+- Original invoice record.
+- Purchase register record.
+- GSTR-2B record.
+- Matching method.
+- Fields compared.
+- Differences detected.
+- Match confidence or review status.
+- Explanation of why the outcome was assigned.
+
+Example:
+
+Invoice: ABC/091
+
+Supplier GSTIN: 19ABCDE1234F1Z5
+
+Purchase register taxable value: ₹10,000
+
+GSTR-2B corresponding record: Not found
+
+Result: MISSING_IN_GSTR2B
+
+Explanation: A corresponding record was not found in the uploaded GSTR-2B data for the selected period.
+
+Suggested next step: Verify the supplier's reporting and relevant period, then contact the supplier if necessary.
+
+Never claim that the supplier definitely failed to file a return when the uploaded data alone cannot establish that fact.
+
+## Reconciliation interface
+
+Build a professional data table with:
+- Invoice number.
+- Supplier.
+- GSTIN.
+- Invoice date.
+- Taxable value.
+- Tax amount.
+- Match status.
+- Difference.
+- Action.
+
+Filters:
+- Status.
+- Supplier.
+- Date.
+- Value range.
+- Discrepancy category.
+
+Provide search, sorting, pagination, and CSV export.
+
+---
+
+# 10. AI DISCREPANCY INVESTIGATION
+
+Create a detailed discrepancy investigation page.
+
+Gemini must explain discrepancies using actual backend-provided records.
+
+The backend should pass the relevant source records and comparison results to Gemini.
+
+Do not let Gemini invent evidence or independently query arbitrary database records.
+
+For each discrepancy, show:
+
+### A. What happened?
+A plain-language explanation.
+
+### B. Evidence
+Show the exact source fields and values supporting the discrepancy.
+
+### C. Possible causes
+Examples:
+- Supplier has not reported the invoice in the relevant statement.
+- Invoice number was recorded differently.
+- Incorrect GSTIN was entered.
+- Invoice was uploaded twice.
+- Tax values differ.
+- Extraction needs manual verification.
+
+Clearly distinguish possible causes from confirmed facts.
+
+### D. Recommended next action
+Provide practical, ordered steps.
+
+### E. Professional review
+Indicate when the issue requires a CA/accountant to determine its tax treatment.
+
+## Example
+
+"Invoice ABC/091 exists in the uploaded purchase register and the extracted supplier invoice, but no corresponding record was found in the uploaded GSTR-2B data. Verify the invoice details and reporting period. If the information is correct, contact the supplier for clarification or correction as applicable."
+
+The explanation must be grounded in the actual data.
+
+---
+
+# 11. AI SUPPLIER FOLLOW-UP AGENT
+
+Create a supplier communication module.
+
+For each discrepancy, allow the user to generate a supplier follow-up draft.
+
+Example:
+
+Subject: Clarification required for GST invoice ABC/091
+
+Dear Supplier,
+
+We are reconciling our purchase records for October 2026 and could not locate a corresponding invoice entry in the GSTR-2B data currently available to us.
+
+Could you please verify the invoice details and confirm whether any correction or further action is required?
+
+Invoice number: ABC/091
+Invoice date: 12 October 2026
+Taxable value: ₹10,000
+
+Regards,
+Eastern Retail Solutions
+
+This is an illustrative message.
+
+## Features
+
+- Generate email draft.
+- Generate concise WhatsApp draft.
+- Edit generated content.
+- Copy message.
+- Approve draft.
+- Mark as sent manually.
+- Track follow-up status.
+- Record response notes.
+- Mark discrepancy resolved after verification.
+
+Do not send emails or WhatsApp messages automatically.
+
+Require explicit human approval before any external communication.
+
+Track:
+- DRAFT.
+- APPROVED.
+- SENT_MANUALLY.
+- AWAITING_RESPONSE.
+- RESOLVED.
+- CLOSED.
+
+---
+
+# 12. ITC RISK AND COMPLIANCE INTELLIGENCE
+
+Create an ITC investigation dashboard.
+
+This is not a GST legal-advice engine.
+
+Show potentially relevant issues, including:
+- Missing corresponding GSTR-2B records.
+- GSTIN discrepancies.
+- Tax amount differences.
+- Duplicate invoices.
+- Invoice extraction uncertainty.
+- Records requiring professional review.
+
+Display:
+- Affected invoice.
+- Supplier.
+- Amount involved.
+- Issue category.
+- Evidence.
+- Recommended next step.
+- Review status.
+
+Use cautious language.
+
+Do not automatically classify all mismatches as ineligible ITC.
+
+Do not make definitive legal eligibility decisions using an LLM.
+
+Do not calculate a legal ITC entitlement without implementing and verifying the relevant applicable GST rules.
+
+Label financial values as:
+- Amount under investigation.
+- Potentially affected tax amount.
+- Needs CA review.
+
+---
+
+# 13. CROSS-PERIOD ISSUE TRACKING
+
+Create a monthly reconciliation history.
+
+Users should be able to switch between periods:
+- August 2026.
+- September 2026.
+- October 2026.
+- November 2026.
+
+Carry forward unresolved discrepancy records into subsequent periods.
+
+Show:
+- First detected period.
+- Last reviewed period.
+- Supplier.
+- Invoice number.
+- Current status.
+- Previous actions.
+- Follow-up history.
+- Resolution date.
+
+Identify recurring suppliers with repeated unresolved discrepancies.
+
+Do not automatically assume that an issue in one period remains valid in the next period. Re-evaluate it against the newly imported records.
+
+---
+
+# 14. REPORTS
+
+Create a professional reports page.
+
+Allow generation and download of:
+
+1. Monthly reconciliation summary.
+2. Matched invoices report.
+3. Unmatched invoices report.
+4. Discrepancy report.
+5. Supplier-wise pending issues.
+6. Potentially affected tax amount report.
+7. Audit trail.
+
+Support CSV and PDF export where feasible.
+
+Reports must contain:
+- Business name.
+- GSTIN.
+- Reporting period.
+- Generation date.
+- Summary.
+- Detailed records.
+- Discrepancy reasons.
+- Review status.
+
+Clearly mark reports as generated from user-uploaded data.
+
+---
+
+# 15. AI ASSISTANT
+
+Create an AI assistant specifically for the selected business and reconciliation period.
+
+It must answer questions such as:
+
+- Which suppliers have the most unresolved discrepancies?
+- Show invoices missing from the uploaded GSTR-2B data.
+- Explain why invoice ABC/091 was flagged.
+- What is the total tax amount associated with unresolved mismatches?
+- Draft a follow-up message for supplier ABC.
+- Summarise this month's reconciliation.
+- Which discrepancies require manual review?
+
+The assistant must use authenticated backend functions to retrieve relevant data.
+
+It must not:
+- Invent records.
+- Invent GST rules.
+- Claim to have submitted returns.
+- Claim to have contacted suppliers.
+- Claim that an ITC claim is legally eligible or ineligible without a verified rules-based process and professional review.
+
+For unsupported questions, explain the limitation.
+
+The AI assistant should be context-aware of the selected business and reporting period.
+
+---
+
+# 16. DATA MODEL
+
+Design a clean and maintainable data model.
+
+Include entities for:
+
+- User.
+- Workspace.
+- BusinessClient.
+- GSTRegistration.
+- ReportingPeriod.
+- Supplier.
+- Invoice.
+- InvoiceExtraction.
+- PurchaseRegisterImport.
+- PurchaseRegisterEntry.
+- GSTR2BImport.
+- GSTR2BEntry.
+- ReconciliationRun.
+- ReconciliationResult.
+- Discrepancy.
+- SupplierFollowUp.
+- AuditLog.
+
+Every business-specific record must be associated with the correct workspace and GST registration.
+
+Store:
+- Creation timestamp.
+- Last updated timestamp.
+- Source file reference.
+- User corrections.
+- AI extraction output.
+- Human approval state.
+- Reconciliation decision.
+- Audit history.
+
+Do not store API keys or secrets in application records.
+
+---
+
+# 17. FUNCTIONALITY AND ENGINEERING REQUIREMENTS
+
+This must be a working application, not a collection of mock screens.
+
+Requirements:
+
+1. Every sidebar link must navigate correctly.
+2. Every button must perform a meaningful action.
+3. Forms must validate input.
+4. Tables must support filtering and searching.
+5. Uploads must process real files.
+6. Gemini must be called from server-side code.
+7. Extraction results must be validated.
+8. Reconciliation must run using deterministic backend logic.
+9. Discrepancy explanations must use actual evidence.
+10. Supplier messages must be editable.
+11. Reports must be exportable.
+12. Demo data must be internally consistent.
+13. Loading, empty, success and error states must exist.
+14. Do not leave dead buttons or placeholder links.
+15. Do not fabricate a successful AI operation when the API call fails.
+
+Use modular architecture.
+
+Separate:
+- UI components.
+- Pages.
+- API client.
+- Server routes.
+- AI service.
+- Invoice extraction service.
+- File parsing service.
+- Reconciliation service.
+- Discrepancy investigation service.
+- Reporting service.
+- Persistence layer.
+- Validation utilities.
+
+Use TypeScript types and shared validation schemas.
+
+Add meaningful error handling and logging.
+
+---
+
+# 18. DEMO DATA
+
+Seed the application with a coherent fictional dataset.
+
+Business:
+Eastern Retail Solutions
+
+GSTIN:
+19AABCU9603R1ZM
+
+Period:
+October 2026
+
+Create:
+- 20 supplier invoice records.
+- 20 purchase register entries.
+- 18 GSTR-2B entries.
+
+Include these scenarios:
+
+1. Two invoices missing from uploaded GSTR-2B.
+2. Two tax amount mismatches.
+3. One possible duplicate invoice.
+4. One invoice number formatting variation.
+5. One GSTIN mismatch.
+6. Several exact matches.
+7. One low-confidence extraction requiring review.
+
+Ensure that the demo dataset is logically consistent.
+
+Do not create contradictory dashboard totals.
+
+Use synthetic suppliers, invoices and GSTIN-like values clearly labelled as demo records. Never present them as verified real GST registrations.
+
+Allow the user to reset the demo dataset.
+
+---
+
+# 19. DEMONSTRATION EXPERIENCE
+
+The product must support this complete demonstration:
+
+STEP 1:
+Open the dashboard and show October 2026 reconciliation status.
+
+STEP 2:
+Navigate to Invoices and upload an invoice PDF or image.
+
+STEP 3:
+Gemini extracts invoice details and returns structured information.
+
+STEP 4:
+Show the invoice preview beside the extracted fields.
+
+STEP 5:
+Approve the extracted record.
+
+STEP 6:
+Import purchase register CSV/XLSX.
+
+STEP 7:
+Import GSTR-2B CSV/XLSX.
+
+STEP 8:
+Run reconciliation.
+
+STEP 9:
+Display matched, unmatched and mismatched records.
+
+STEP 10:
+Open a discrepancy and show the exact evidence.
+
+STEP 11:
+Generate an AI explanation.
+
+STEP 12:
+Generate a supplier follow-up draft.
+
+STEP 13:
+Edit and approve the draft.
+
+STEP 14:
+Mark the follow-up as manually sent.
+
+STEP 15:
+Download the reconciliation report.
+
+This complete flow must work in the live preview.
+
+---
+
+# 20. STRICT AI AND GST SAFETY RULES
+
+These rules are mandatory.
+
+1. Gemini is responsible for document understanding, explanations and communication drafts.
+2. The backend is responsible for calculations, validation, reconciliation and access control.
+3. Do not use an LLM as the source of truth for financial calculations.
+4. Never silently modify invoice amounts.
+5. Never silently confirm uncertain matches.
+6. Never invent missing GSTR-2B entries.
+7. Never claim a supplier has failed to file based solely on an uploaded file.
+8. Never claim an ITC amount is legally eligible or ineligible without applicable verified rules and human review.
+9. Never claim to have submitted a GST return.
+10. Preserve source evidence and user corrections.
+11. All important AI-generated recommendations must be reviewable.
+12. All financial and compliance actions must remain auditable.
+
+---
+
+# 21. DEVELOPMENT EXECUTION STRATEGY
+
+Do not attempt to generate a visually impressive but non-functional application.
+
+Build in stages while preserving the project architecture.
+
+### Stage 1 — Foundation
+- Project structure.
+- Design system.
+- Navigation.
+- Dashboard.
+- Demo data.
+- Shared types.
+
+### Stage 2 — Data ingestion
+- Invoice upload.
+- PDF/image handling.
+- Gemini extraction.
+- Extraction review.
+- Purchase register import.
+- GSTR-2B import.
+
+### Stage 3 — Reconciliation
+- Deterministic matching engine.
+- Matching hierarchy.
+- Discrepancy classification.
+- Reconciliation results interface.
+
+### Stage 4 — AI intelligence
+- Evidence-grounded explanations.
+- Supplier follow-up drafts.
+- AI assistant.
+
+### Stage 5 — Business workflow
+- Issue tracking.
+- Cross-period history.
+- Reports.
+- Audit trail.
+
+### Stage 6 — Quality
+- Test the complete demonstration flow.
+- Fix TypeScript errors.
+- Fix runtime errors.
+- Fix API errors.
+- Test file uploads.
+- Verify calculations.
+- Verify all navigation and interactions.
+- Verify that API keys are not exposed.
+
+Prioritise a complete working workflow over adding unnecessary features.
+
+If a feature is too complex for the first build, implement the smallest functional version and clearly identify what remains incomplete.
+
+Do not silently replace a required feature with a static mockup.
+
+---
+
+# 22. FINAL ACCEPTANCE CRITERIA
+
+The application is acceptable only when:
+
+- It has a polished, professional SaaS interface.
+- It has functional navigation.
+- The dashboard reflects the actual demo dataset.
+- Invoice uploads work.
+- Gemini extraction works through a secure server-side call.
+- Extracted fields can be reviewed and edited.
+- CSV/XLSX purchase register imports work.
+- CSV/XLSX GSTR-2B imports work.
+- The reconciliation engine produces deterministic results.
+- Discrepancies show supporting evidence.
+- Gemini generates grounded explanations.
+- Supplier follow-up drafts are editable.
+- Reconciliation records can be exported.
+- The core demo can be completed without manually editing source code.
+- No critical page is just a placeholder.
+- No major action falsely reports success.
+
+Start by creating the complete application foundation and the most important screens. Then implement the actual backend functionality.
+
+Before finishing, run the application, inspect the console and server output, identify errors, and fix them.
+
+**Your objective is to deliver a credible, working AI-powered GST reconciliation product that could be demonstrated to startup judges, CA firms and MSME customers.**

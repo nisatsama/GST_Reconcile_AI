@@ -1,0 +1,8 @@
+{
+  "name": "GST Reconcile AI",
+  "description": "AI-assisted GST reconciliation and compliance intelligence platform for Indian MSMEs, accountants, and CA firms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
