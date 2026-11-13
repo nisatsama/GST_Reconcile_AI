@@ -2,7 +2,13 @@
 ### AI-Powered GST Reconciliation & Compliance Intelligence for Indian Businesses
 
 **Simplifying GST reconciliation. Detecting discrepancies. Preventing compliance risks.**
+=
 
+**[Live Demo](https://gst-reconcile-ai.ai.studio/) | [GitHub Repository](YOUR_GITHUB_REPOSITORY_LINK)**
+
+**Simplifying GST reconciliation. Detecting discrepancies. Preventing compliance risks.**
+
+GST Reconcile AI is an intelligent GST reconciliation platform designed to help Indian MSMEs, accounting professionals, and Chartered Accountant (CA) firms automate complex GST reconciliation workflows.
 GST Reconcile AI is an intelligent GST reconciliation platform designed to help Indian MSMEs, accounting professionals, and Chartered Accountant (CA) firms automate complex GST reconciliation workflows.
 
 The platform processes purchase and sales records, compares them against GST data such as GSTR-2B, identifies mismatches, detects potential ITC (Input Tax Credit) risks, and generates actionable insights through AI-powered analysis.
